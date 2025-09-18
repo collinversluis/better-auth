@@ -46,7 +46,6 @@ export default function SignUp() {
         image: image ? await convertImageToBase64(image) : "",
         // custom field configured via user.additionalFields in
         // lib/auth.ts
-        foo: "baz",
       },
       {
         onRequest: () => {
@@ -57,6 +56,7 @@ export default function SignUp() {
         },
         onError: async (ctx) => {
           setLoading(false);
+          console.log(ctx);
           console.error(ctx.error);
           console.error("response", ctx.response);
           toast.error(ctx.error.message);

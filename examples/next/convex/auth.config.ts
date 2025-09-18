@@ -5,5 +5,13 @@ export default {
       domain: `${process.env.CONVEX_SITE_URL}`,
       applicationID: "convex",
     },
+    {
+      domain: "https://localhost:3000",
+      applicationID: "local",
+    }
+  ],
+  trustedOrigins: [
+    "https://localhost:3000",
+    "https://your-production-domain.com"
   ],
 };

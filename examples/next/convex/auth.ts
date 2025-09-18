@@ -23,7 +23,7 @@ import { DataModel } from "./_generated/dataModel";
 
 // This implementation uses Local Install as it would be in a new project.
 
-const siteUrl = process.env.SITE_URL;
+const siteUrl = process.env.SITE_URL!;
 
 export const authComponent = createClient<DataModel, typeof authSchema>(
   components.betterAuth,
@@ -41,6 +41,7 @@ export const createAuth = (
 ) =>
   betterAuth({
     baseURL: siteUrl,
+    trustedOrigins: [siteUrl, "https://localhost:3000"],
     logger: {
       disabled: optionsOnly,
     },
